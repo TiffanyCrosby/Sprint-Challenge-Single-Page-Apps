@@ -6,7 +6,6 @@ import LocationCard from "./LocationCard";
 import { Container, Row } from "reactstrap";
 
 export default function LocationList() {
-    // TODO: Add useState to track data from useEffect
     const [location, setLocation] = useState([]);
     const [LocationQuery, setLocationQuery] = useState("");
 
@@ -24,7 +23,7 @@ export default function LocationList() {
                 setLocation(locations);
                 console.log(locations);
             })
-            .catch(err => console.log(err.response));
+            .catch(error => console.log('Data Not Returned: Error ', error));
     }, [LocationQuery]);
 
     return (
