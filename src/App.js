@@ -10,31 +10,10 @@ export default function App() {
   return (
     <main>
       <Header />
-      <Route
-        exact
-        path="/"
-        render={props => {
-          return <WelcomePage {...props} />;
-        }}
-      ></Route>
-      <Route
-        path="/characters"
-        render={props => {
-          return <CharacterList {...props} />;
-        }}
-      ></Route>
-      <Route
-        path="/locations"
-        render={props => {
-          return <LocationList {...props} />;
-        }}
-      ></Route>
-      <Route
-        path="/episodes"
-        render={props => {
-          return <EpisodeList {...props} />;
-        }}
-      ></Route>
+      <Route exact path="/" render={props => { return <WelcomePage {...props} />; }}></Route>
+      <Route path="/characters" render={props => { return <CharacterList {...props} />; }}></Route>
+      <Route path="/locations" render={props => { return <LocationList {...props} />; }}></Route>
+      <Route path="/episodes" render={props => { return <EpisodeList {...props} />; }}></Route>
     </main>
   );
 }

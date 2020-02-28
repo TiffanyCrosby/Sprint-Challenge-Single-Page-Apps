@@ -18,26 +18,26 @@ export default function CharacterList() {
     Axios.get("https://rickandmortyapi.com/api/character/")
       .then(res => {
         console.log(res.data);
-        const character = res.data.results.filter(a =>
-          a.name.toLowerCase().includes(nameQuery.toLowerCase())
+        const character = res.data.results.filter(char =>
+          char.name.toLowerCase().includes(nameQuery.toLowerCase())
         );
         setCharacters(character);
         console.log(character);
       })
-      .catch(err => console.log(err.response));
+      .catch(error => console.log('Data Not Returned: Error ', error));
   }, [nameQuery]);
 
   return (
     <Container>
       <SearchForm value={nameQuery} handleChange={handleChange} />
       <Row>
-        {characters.map(a => {
+        {characters.map(char => {
           return (
             <CharacterCard
-              name={a.name}
-              species={a.species}
-              image={a.image}
-              episode={a.episode}
+              name={char.name}
+              species={char.species}
+              image={char.image}
+              episode={char.episode}
             />
           );
         })}

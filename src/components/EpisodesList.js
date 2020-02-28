@@ -17,8 +17,8 @@ export default function EpisodeList() {
         Axios.get("https://rickandmortyapi.com/api/episode/")
             .then(res => {
                 console.log(res.data);
-                const episodes = res.data.results.filter(a =>
-                    a.name.toLowerCase().includes(episodeQuery.toLowerCase())
+                const episodes = res.data.results.filter(epi =>
+                    epi.name.toLowerCase().includes(episodeQuery.toLowerCase())
                 );
                 setEpisode(episodes);
                 console.log(episodes);
@@ -42,13 +42,13 @@ export default function EpisodeList() {
             </form>
 
             <Row>
-                {episode.map(a => {
+                {episode.map(epi => {
                     return (
                         <EpisodeCard
-                            name={a.name}
-                            airDate={a.air_date}
-                            episode={a.episode}
-                            id={a.episidode}
+                            name={epi.name}
+                            airDate={epi.air_date}
+                            episode={epi.episode}
+                            id={epi.episidode}
                         />
                     );
                 })}

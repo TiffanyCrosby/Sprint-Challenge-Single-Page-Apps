@@ -17,8 +17,8 @@ export default function LocationList() {
         Axios.get("https://rickandmortyapi.com/api/location/")
             .then(res => {
                 console.log(res.data);
-                const locations = res.data.results.filter(a =>
-                    a.name.toLowerCase().includes(LocationQuery.toLowerCase())
+                const locations = res.data.results.filter(loc =>
+                    loc.name.toLowerCase().includes(LocationQuery.toLowerCase())
                 );
                 setLocation(locations);
                 console.log(locations);
@@ -42,13 +42,13 @@ export default function LocationList() {
             </form>
 
             <Row>
-                {location.map(a => {
+                {location.map(loc => {
                     return (
                         <LocationCard
-                            name={a.name}
-                            type={a.type}
-                            dimension={a.dimension}
-                            id={a.episidode}
+                            name={loc.name}
+                            type={loc.type}
+                            dimension={loc.dimension}
+                            id={loc.episidode}
                         />
                     );
                 })}
