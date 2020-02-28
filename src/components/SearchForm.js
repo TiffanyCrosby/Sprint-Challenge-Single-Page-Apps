@@ -1,10 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 
-export default function SearchForm() {
- 
+export default function SearchForm(props) {
   return (
-    <section className="search-form">
-     // Add a search form here
-    </section>
+    <div>
+      <div className="searchBar">
+        <input
+          onChange={props.handleChange}
+          type="text"
+          name="searchName"
+          placeholder="Search by Name"
+          name="name"
+          tabIndex="0"
+          className="searchInput"
+          autoComplete="off"
+        />
+      </div>
+    </div>
   );
 }
